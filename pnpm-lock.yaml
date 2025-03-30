@@ -6,9 +6,7 @@ settings:
 
 importers:
 
-  .: {}
-
-  apps/pokedex-hub:
+  .:
     dependencies:
       astro:
         specifier: ^5.5.5
