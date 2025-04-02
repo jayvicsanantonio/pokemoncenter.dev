@@ -1,15 +1,16 @@
 ---
-import "../styles/global.css";
+import '../styles/global.css';
 
 interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = "A collection of mini-apps and projects." } =
-  Astro.props;
-
-const siteTitle = "App Pokédex";
+const {
+  title,
+  description = 'A collection of mini-apps and projects, Hoenn style!',
+} = Astro.props;
+const siteTitle = 'App Pokédex';
 const fullTitle = `${title} | ${siteTitle}`;
 ---
 
@@ -17,113 +18,144 @@ const fullTitle = `${title} | ${siteTitle}`;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {/* Ensure proper viewport scaling */}
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    {/* Maybe change to a Pokeball icon? */}
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{fullTitle}</title>
 
-    {
-      /* Fonts: Keep Inter for readability, add Press Start 2P for titles/accents */
-    }
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Press+Start+2P&display=swap"
       rel="stylesheet"
     />
 
     <style is:global>
-      /* Apply base font */
       body {
-        font-family: "Inter", sans-serif;
-        /* Smoother font rendering */
+        font-family: 'Inter', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
-      /* Style for Pokédex title */
       .pokedex-title {
-        font-family: "Press Start 2P", cursive;
+        font-family: 'Press Start 2P', cursive;
+      }
+      main::-webkit-scrollbar {
+        width: 8px;
+      }
+      main::-webkit-scrollbar-track {
+        background: #4a5568; /* gray-700 */
+        border-radius: 4px;
+      }
+      main::-webkit-scrollbar-thumb {
+        background: #a0aec0; /* gray-500 */
+        border-radius: 4px;
+      }
+      main::-webkit-scrollbar-thumb:hover {
+        background: #718096; /* gray-600 */
       }
     </style>
   </head>
-  {/* Body styled as the outer Pokédex shell */}
   <body
-    class="bg-gradient-to-br from-red-500 to-red-700 min-h-screen flex items-center justify-center p-4 md:p-8"
+    class="bg-gray-200 dark:bg-gray-900 min-h-screen flex items-center justify-center p-4 md:p-6"
   >
-    {/* Main Pokédex Structure */}
     <div
-      class="w-full max-w-4xl bg-red-600 rounded-xl shadow-2xl overflow-hidden border-4 border-black flex flex-col md:flex-row"
-      style="min-height: 70vh;"
+      class="grid grid-cols-1 md:grid-cols-[1fr_2.5fr_1fr] w-full max-w-6xl h-[70vh] min-h-[550px] md:h-[450px] shadow-xl rounded-xl overflow-hidden border border-gray-700 dark:border-gray-600"
     >
-      {/* Added min-height */}
-
-      {/* Left Side (Hinge/Lights - decorative) */}
       <div
-        class="w-full md:w-16 bg-red-700 p-4 flex md:flex-col items-center justify-center gap-4 border-b-4 md:border-b-0 md:border-r-4 border-black"
+        class="bg-gradient-to-br from-red-600 to-red-700 p-6 flex items-center justify-center border-r border-gray-700 dark:border-gray-600 relative col-span-1 md:col-span-1"
       >
-        {/* Decorative "Lights" */}
         <div
-          class="w-8 h-8 bg-blue-400 rounded-full border-2 border-black shadow-inner"
+          class="absolute top-4 left-4 w-3.5 h-3.5 bg-green-400 rounded-full border border-gray-900/50"
         >
         </div>
         <div
-          class="w-5 h-5 bg-red-400 rounded-full border-2 border-black shadow-inner"
+          class="w-32 h-32 md:w-40 md:h-40 bg-slate-100 rounded-full flex items-center justify-center relative border border-gray-400 shadow-lg"
         >
-        </div>
-        <div
-          class="w-5 h-5 bg-yellow-400 rounded-full border-2 border-black shadow-inner"
-        >
-        </div>
-        <div
-          class="w-5 h-5 bg-green-400 rounded-full border-2 border-black shadow-inner"
-        >
+          <div
+            class="absolute left-1/2 top-0 bottom-0 w-px bg-gray-400 transform -translate-x-1/2"
+          >
+          </div>
+          <div
+            class="w-12 h-12 md:w-14 md:h-14 bg-blue-500 hover:bg-blue-400 transition-colors rounded-full border border-black/50 shadow-inner cursor-pointer"
+          >
+          </div>
         </div>
       </div>
 
-      {/* Right Side (Screen and Controls) */}
-      <div class="flex-1 bg-red-500 p-4 md:p-6 flex flex-col">
-        {/* Header Area */}
-        <header class="mb-4 text-center">
-          {/* Use the pixel font for the title */}
-          <a
-            href="/"
-            class="pokedex-title text-2xl md:text-3xl text-white hover:text-yellow-300 drop-shadow-md"
-            style="text-shadow: 2px 2px #000;"
-          >
-            {siteTitle}
-          </a>
-          {/* Simple Nav (can be styled more later) */}
-          <nav class="mt-2">
-            <a
-              href="/"
-              class="text-sm text-white hover:text-yellow-300 px-2 py-1 rounded bg-red-700/50"
-              >Home</a
-            >
-            {
-              /* <a href="/about" class="text-sm text-white hover:text-yellow-300 px-2 py-1 rounded bg-red-700/50 ml-2">About</a> */
-            }
-          </nav>
-        </header>
-
-        {/* Main Content Screen */}
-        <main
-          class="flex-grow bg-slate-100 text-slate-900 p-4 md:p-6 rounded-lg border-4 border-gray-700 shadow-inner overflow-y-auto"
-          style="box-shadow: inset 0 0 10px rgba(0,0,0,0.5);"
+      <div
+        class="bg-gray-900 p-4 flex flex-col border-r border-gray-700 dark:border-gray-600 col-span-1 md:col-span-1"
+      >
+        <div
+          class="bg-gray-800 p-1.5 rounded-lg flex-grow flex flex-col overflow-hidden"
         >
-          {/* Page content goes here */}
-          <slot />
-        </main>
+          <main
+            class="flex-grow bg-slate-100 text-slate-900 p-4 md:p-6 rounded-md overflow-y-auto relative"
+          >
+            <header
+              class="mb-4 text-center border-b border-slate-300 pb-2"
+            >
+              <a
+                href="/"
+                class="pokedex-title text-xl text-gray-700 hover:text-blue-600 transition-colors"
+                style="text-shadow: 1px 1px #ccc;"
+              >
+                {siteTitle}
+              </a>
+              <nav class="mt-2 space-x-3">
+                <a
+                  href="/"
+                  class="text-sm text-blue-700 hover:underline font-medium"
+                  >Home</a
+                >
+              </nav>
+            </header>
+            <div class="space-y-6">
+              <slot />
+            </div>
+            <footer
+              class="text-center pt-3 mt-6 border-t border-slate-300"
+            >
+              <p class="text-xs text-gray-500">
+                &copy; {new Date().getFullYear()}
+                {siteTitle}.
+              </p>
+            </footer>
+          </main>
+        </div>
+      </div>
 
-        {/* Footer Area (Simplified) */}
-        <footer class="text-center pt-4 mt-auto">
-          <p class="text-xs text-white/70">
-            &copy; {new Date().getFullYear()}
-            {siteTitle}.
-          </p>
-        </footer>
+      <div
+        class="bg-gradient-to-bl from-red-600 to-red-700 p-6 flex flex-col justify-between items-center relative col-span-1 md:col-span-1"
+      >
+        <div class="flex gap-2.5 self-end mr-2 mt-1">
+          <div
+            class="w-5 h-5 bg-green-400 rounded-full border border-gray-900/50"
+          >
+          </div>
+          <div
+            class="w-5 h-5 bg-green-400 rounded-full border border-gray-900/50"
+          >
+          </div>
+        </div>
+
+        <div
+          class="w-2/3 h-16 space-y-2 flex flex-col justify-center"
+        >
+          <div class="h-0.5 bg-gray-800/70 rounded-full"></div>
+          <div class="h-0.5 bg-gray-800/70 rounded-full"></div>
+          <div class="h-0.5 bg-gray-800/70 rounded-full"></div>
+          <div class="h-0.5 bg-gray-800/70 rounded-full"></div>
+        </div>
+
+        <div class="h-8"></div>
       </div>
     </div>
   </body>
