@@ -1,0 +1,157 @@
+---
+const siteTitle = 'App Pokédex';
+---
+
+<div
+  class="grid grid-cols-1 lg:grid-cols-[1fr_2.5fr_1fr] w-full max-w-11/12 h-[70vh] min-h-[550px] lg:h-[850px] shadow-xl rounded-[80px] overflow-hidden border border-gray-700 dark:border-gray-600"
+>
+  {/* Left Panel */}
+  <div
+    class="bg-linear-150 from-red-400 to-red-600 flex items-center justify-center border-r border-gray-700 dark:border-gray-600 relative col-span-1 lg:col-span-1"
+  >
+    <div
+      class="z-10 m-4 w-40 h-40 lg:w-56 lg:h-56 flex justify-center items-center bg-linear-150 from-gray-400 to-gray-500 rounded-full inset-shadow-sm border border-gray-500"
+    >
+      <div
+        class="w-32 h-32 lg:w-48 lg:h-48 bg-white rounded-full flex items-center justify-center relative border-4 border-gray-700 shadow-lg overflow-hidden"
+      >
+        <div
+          class="absolute inset-0 bg-linear-to-b from-red-400 to-red-500 h-1/2 border-b-8 border-gray-600"
+        >
+        </div>
+        <div
+          class="absolute w-14 h-14 lg:w-18 lg:h-18 flex justify-center items-center bg-gray-700 rounded-full"
+        >
+          <div
+            class="w-10 h-10 lg:w-14 lg:h-14 bg-white hover:bg-lime-00 transition-colors rounded-full border border-gray-900 shadow-inner"
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="absolute z-0 left-0 lg:w-1/2 h-full bg-linear-to-r from-gray-200 via-gray-400 to-gray-500"
+    >
+    </div>
+  </div>
+
+  {/* Center Panel */}
+  <div
+    class="bg-gray-900 p-4 flex flex-col border-r border-gray-700 dark:border-gray-600 col-span-1 lg:col-span-1"
+  >
+    <div
+      class="bg-gray-800 p-1.5 rounded-lg flex-grow flex flex-col overflow-hidden"
+    >
+      <main
+        class="flex-grow bg-slate-100 text-slate-900 p-4 lg:p-6 rounded-md overflow-y-auto relative"
+      >
+        <header
+          class="mb-4 text-center border-b border-slate-300 pb-2"
+        >
+          <a
+            href="/"
+            class="pokedex-title text-xl text-gray-700 hover:text-blue-600 transition-colors"
+            style="text-shadow: 1px 1px #ccc;"
+          >
+            {siteTitle}
+          </a>
+          <nav class="mt-2 space-x-3">
+            <a
+              href="/"
+              class="text-sm text-blue-700 hover:underline font-medium"
+              >Home</a
+            >
+          </nav>
+        </header>
+        <div class="space-y-6">
+          <slot />
+        </div>
+        <footer
+          class="text-center pt-3 mt-6 border-t border-slate-300"
+        >
+          <p class="text-xs text-gray-500">
+            &copy; {new Date().getFullYear()}
+            {siteTitle}.
+          </p>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  {/* Right Panel */}
+  <div
+    class="bg-linear-150 from-red-400 to-red-600 flex flex-col items-center relative col-span-1 lg:col-span-1 space-between"
+  >
+    <div class="flex flex-col space-between flex-1 p-6 mb-12">
+      <div class="absolute right-9 top-9">
+        <div
+          class="w-10 h-10 lg:w-14 lg:h-14 bg-red-800 rounded-full flex justify-center items-center inset-shadow-sm"
+        >
+          <div
+            class="w-6 h-6 lg:w-9 lg:h-9 bg-amber-200 border-2 border-amber-400 rounded-full"
+            style={{
+              boxShadow: '0 0 20px 3px #FEE685',
+            }}
+          >
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-1 items-end gap-6 px-6">
+        <div
+          class="w-14 h-14 lg:w-20 lg:h-20 bg-red-800 rounded-full flex justify-center items-center inset-shadow-sm"
+        >
+          <div
+            class="w-10 h-10 lg:w-14 lg:h-14 bg-radial-[at_30%_30%] from-green-200 via-green-300 to-gray-500 rounded-full inset-shadow-sm border border-green-800"
+          >
+          </div>
+        </div>
+        <div
+          class="w-14 h-14 lg:w-20 lg:h-20 bg-red-800 rounded-full flex justify-center items-center inset-shadow-sm"
+        >
+          <div
+            class="w-10 h-10 lg:w-14 lg:h-14 bg-radial-[at_30%_30%] from-green-200 via-green-300 to-gray-500 rounded-full inset-shadow-sm border border-green-800"
+          >
+          </div>
+        </div>
+        <div
+          class="w-14 h-14 lg:w-20 lg:h-20 bg-red-800 rounded-full flex justify-center items-center inset-shadow-sm"
+        >
+          <div
+            class="w-10 h-10 lg:w-14 lg:h-14 bg-radial-[at_30%_30%] from-green-200 via-green-300 to-gray-500 rounded-full inset-shadow-sm border border-green-800"
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col flex-1 w-full gap-8 px-6">
+      <div class="flex flex-col items-center w-full gap-1 lg:gap-3">
+        <div
+          class="w-full h-3 bg-linear-150 from-gray-400 to-gray-500 inset-shadow-sm border-2 border-gray-500 rounded-full"
+        >
+        </div>
+        <div
+          class="w-full h-3 bg-linear-150 from-gray-400 to-gray-500 inset-shadow-sm border-2 border-gray-500 rounded-full"
+        >
+        </div>
+        <div
+          class="w-full h-3 bg-linear-150 from-gray-400 to-gray-500 inset-shadow-sm border-2 border-gray-500 rounded-full"
+        >
+        </div>
+      </div>
+      <div
+        class="w-full h-52 rounded-lg overflow-hidden border border-gray-900/10"
+      >
+        <div
+          style={{
+            backgroundImage:
+              'radial-gradient(#4a5568 1px, transparent 1.5px)',
+            backgroundSize: '5px 5px',
+          }}
+          class="w-full h-full bg-red-700"
+        >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
